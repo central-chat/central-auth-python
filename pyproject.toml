@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "central-auth"
+version = "0.1.1"
+description = "Mints Central App Entry tokens from the key file the console downloads — server side only"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Central", email = "hello@central.chat" }]
+keywords = ["central", "chat", "jwt", "jwe", "auth"]
+dependencies = ["jwcrypto>=1.5.6"]
+
+[project.urls]
+Homepage = "https://central.chat"
+Source = "https://github.com/central-chat/central-auth-python"
+
+[tool.setuptools]
+py-modules = ["central_auth"]
+
+# src-layout: sin esto un import desde la raíz del proyecto toma el archivo
+# suelto en vez del paquete instalado, y un empaquetado roto pasa los tests.
+[tool.setuptools.package-dir]
+"" = "src"
